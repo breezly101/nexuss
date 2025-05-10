@@ -27,8 +27,8 @@ hacks
 - more hacks coming soon!
 
 # special features (coming soon..)
-- tab cloaking
-- about:blank cloaking
+- tab cloaking ✓
+- about:blank cloaking ✓
 - offline html games*
 - ultraviolet proxy ✓
 
