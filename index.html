@@ -134,6 +134,21 @@
       height: 20px;
       filter: invert(100%);
     }
+
+    /* New button styling */
+    .launch-proxy-btn {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      padding: 10px 20px;
+      background-color: transparent;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: none; /* Removed border */
+    }
   </style>
 </head>
 <body>
@@ -157,6 +172,7 @@
       <a href="emulators.html">Emulators</a>
       <a href="hacks.html">Hacks</a>
     </div>
+
   </div>
 
   <!-- Particles.js Library -->
@@ -206,62 +222,29 @@
     });
   </script>
 
-  <!-- Script to Play Sound -->
+  <!-- Script for Launch Button -->
   <script>
-    const buttonSound = new Audio('assets/sfx/button.mp3');
+    function launchProxy() {
+      const win = window.open('about:blank', '_blank');
+      if (!win) {
+        alert("Popup blocked! Please allow popups for this site.");
+        return;
+      }
 
-    document.querySelectorAll('.play-sound').forEach(button => {
-      button.addEventListener('idk', (event) => {
-        event.preventDefault();
-        const targetUrl = button.getAttribute('href');
-        buttonSound.currentTime = 0;
-        buttonSound.play();
-        setTimeout(() => {
-          window.location.href = targetUrl;
-        }, 500);
-      });
-    });
+      fetch('prox.html')
+        .then(res => res.text())
+        .then(html => {
+          win.document.open();
+          win.document.write(html);
+          win.document.close();
+        });
 
-    const quotes = [
-      "i accidentally muted the teacher",
-      "my homework ate my dog",
-      "oh the weather outside is rizzy",
-      "school wifi is sus",
-      "late to class again 💀",
-      "now with more html",
-      "omg i better not get iss for this 😭",
-      "blocked!",
-      "made by breezly",
-      "carefully crafted",
-      "skibidi",
-      "press ctrl+shift+q+q for free money",
-      "i dare you to rub a magnet on the side of your chromebook",
-      "bruh",
-      "forgot my charger",
-      "teacher caught me playing games again",
-      "unblocked",
-      "thank you chatgpt for the code",
-      "fortnite is cringe",
-      "minecraft is goated",
-      "goated edition",
-      "best proxy",
-      "how is this not blocked",
-      "help",
-      "school lunch is mid",
-      "dont forget your homework"
-    ];
-
-    function changeQuote() {
-      const quoteEl = document.getElementById("quote");
-      let newQuote;
-      do {
-        newQuote = quotes[Math.floor(Math.random() * quotes.length)];
-      } while (newQuote === quoteEl.innerText);
-      quoteEl.innerText = newQuote;
+      window.location.replace('https://classroom.google.com');
     }
-
-    // Click event to change the quote when clicked on the quote text
-    document.getElementById('quote').addEventListener('click', changeQuote);
   </script>
+
+  <!-- New Launch Proxy Button -->
+  <a href="#" onclick="launchProxy()" class="launch-proxy-btn">about:blank</a>
+
 </body>
 </html>
