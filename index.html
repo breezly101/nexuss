@@ -222,29 +222,7 @@
     });
   </script>
 
-  <!-- Script for Launch Button -->
-  <script>
-    function launchProxy() {
-      const win = window.open('about:blank', '_blank');
-      if (!win) {
-        alert("Popup blocked! Please allow popups for this site.");
-        return;
-      }
-
-      fetch('index.html')
-        .then(res => res.text())
-        .then(html => {
-          win.document.open();
-          win.document.write(html);
-          win.document.close();
-        });
-
-      window.location.replace('https://classroom.google.com');
-    }
-  </script>
-
-  <!-- New Launch Proxy Button -->
-  <a href="#" onclick="launchProxy()" class="launch-proxy-btn">about:blank</a>
+  <script src="javascript/quotes.js"></script>
 
 </body>
 </html>
