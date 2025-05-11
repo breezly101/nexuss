@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://ssl.gstatic.com/classroom/ic_product_classroom_96.png" sizes="96x96" />
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Prevent scrolling */
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000; /* Optional: Make the background black */
+        }
+        #game {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            border: none; /* Remove the border */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="game"></div>
+    </div>
+
+    <script>
+        // Setup for the EmulatorJS game loader
+        var EJS_player = "#game";
+        var EJS_core = "gba"; // Assuming the game is a GBA game
+        var EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
+        var EJS_gameUrl = "https://enderchriss.github.io/swffiles3/sa1.gba"; // URL to the game file
+    </script>
+
+    <script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
+</body>
+</html>
