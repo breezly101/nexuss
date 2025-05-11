@@ -164,7 +164,7 @@
 
     <!-- Quotes Section -->
     <div class="quote-container">
-      <div id="quote" class="quote-text">Loading quote...</div> <!-- Default message -->
+      <div id="quote-display" class="quote-text">Loading quote...</div> <!-- Default message -->
     </div>
 
     <div class="menu">
@@ -256,23 +256,18 @@
       "dont forget your homework"
     ];
 
-    // Function to get a random quote
-    function getRandomQuote() {
-      return quotes[Math.floor(Math.random() * quotes.length)];
+    // Function to display a random quote
+    function displayRandomQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      const randomQuote = quotes[randomIndex];
+      document.getElementById('quote-display').textContent = randomQuote;
     }
 
-    // Function to change the quote
-    function changeQuote() {
-      const quoteEl = document.getElementById("quote");
-      quoteEl.innerText = getRandomQuote();
-    }
+    // Display a random quote when the page loads
+    displayRandomQuote();
 
-    // Set initial random quote when page loads
-    window.addEventListener('load', changeQuote);
-
-    // Add click event listener to change quote on click
-    document.getElementById('quote').addEventListener('click', changeQuote);
+    // Change quote when the user clicks on the displayed quote
+    document.getElementById('quote-display').addEventListener('click', displayRandomQuote);
   </script>
-
 </body>
 </html>
