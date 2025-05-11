@@ -162,7 +162,10 @@
       <div class="title">Nexus</div>
     </div>
 
+    <!-- Quotes Section -->
     <div class="quote-container">
+      <div id="quote" class="quote-text">Loading quote...</div> <!-- Default message -->
+    </div>
 
     <div class="menu">
       <a href="prox.html">Ultraviolet</a>
@@ -170,7 +173,6 @@
       <a href="emulators.html">Emulators</a>
       <a href="hacks.html">Hacks</a>
     </div>
-
   </div>
 
   <!-- Particles.js Library -->
@@ -254,21 +256,18 @@
       "dont forget your homework"
     ];
 
- function getRandomQuote(currentQuote) {
-      let newQuote;
-      do {
-        newQuote = quotes[Math.floor(Math.random() * quotes.length)];
-      } while (newQuote === currentQuote);
-      return newQuote;
+    // Function to get a random quote
+    function getRandomQuote() {
+      return quotes[Math.floor(Math.random() * quotes.length)];
     }
 
     // Function to change the quote
     function changeQuote() {
       const quoteEl = document.getElementById("quote");
-      quoteEl.innerText = getRandomQuote(quoteEl.innerText);
+      quoteEl.innerText = getRandomQuote();
     }
 
-    // Set initial quote when page loads
+    // Set initial random quote when page loads
     window.addEventListener('load', changeQuote);
 
     // Add click event listener to change quote on click
