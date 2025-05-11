@@ -7,7 +7,9 @@ const quotes = [
   "late to class again 💀",
   "now with more html",
   "omg i better not get iss for this 😭",
+  "no ads!",
   "blocked!",
+  "have you played eaglercraft?"
   "made by breezly",
   "carefully crafted",
   "skibidi",
