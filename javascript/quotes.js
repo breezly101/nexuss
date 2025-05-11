@@ -11,6 +11,8 @@ const quotes = [
   "have you played eaglercraft?",
   "made by breezly",
   "carefully crafted",
+  "proxy",
+  "play OvO, trust.",
   "skibidi",
   "press ctrl+shift+q+q for free money",
   "i dare you to rub a magnet on the side of your chromebook",
