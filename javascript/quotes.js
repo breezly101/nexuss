@@ -1,4 +1,3 @@
-// Define an array of quotes
 const quotes = [
   "i accidentally muted the teacher",
   "my homework ate my dog",
@@ -9,7 +8,7 @@ const quotes = [
   "omg i better not get iss for this 😭",
   "no ads!",
   "blocked!",
-  "have you played eaglercraft?"
+  "have you played eaglercraft?",
   "made by breezly",
   "carefully crafted",
   "skibidi",
