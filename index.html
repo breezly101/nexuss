@@ -256,19 +256,29 @@
       "dont forget your homework"
     ];
 
-    // Function to change the quote
-    function changeQuote() {
-      const quoteEl = document.getElementById("quote");
+ function getRandomQuote(currentQuote) {
       let newQuote;
       do {
         newQuote = quotes[Math.floor(Math.random() * quotes.length)];
-      } while (newQuote === quoteEl.innerText);
-      quoteEl.innerText = newQuote;
+      } while (newQuote === currentQuote);
+      return newQuote;
     }
+
+    // Function to change the quote
+    function changeQuote() {
+      const quoteEl = document.getElementById("quote");
+      quoteEl.innerText = getRandomQuote(quoteEl.innerText);
+    }
+
+    // Set initial quote when page loads
+    window.addEventListener('load', changeQuote);
 
     // Add click event listener to change quote on click
     document.getElementById('quote').addEventListener('click', changeQuote);
   </script>
+
+</body>
+</html>
 
 </body>
 </html>
