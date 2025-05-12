@@ -4,7 +4,7 @@ const games = [
   { name: 'Kirka io', folder: 'games/kirka', icon: 'assets/images/kirka.png' },
   { name: 'Slowroads', folder: 'games/slowroads', icon: 'assets/images/slowroads.png' },
   { name: 'Super Mario 64', folder: 'games/sm64', icon: 'assets/images/mario.png' },
-  { name: 'Geforce NOW', folder: 'games/geforce', icon: 'assets/images/gfnow.png' },
+  { name: 'Drift Hunters', folder: 'games/drifthunters', icon: 'assets/images/drifthunters.png' },
   { name: 'Engine Sim', folder: 'games/enginesounds', icon: 'assets/images/engine.png' },
   { name: 'Basketball Bros', folder: 'games/basketball', icon: 'assets/images/basketball.png' },
   { name: 'OvO', folder: 'games/OvO', icon: 'assets/images/ovo.png' },
