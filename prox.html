@@ -2,125 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home</title>
-  <link rel="icon" href="https://ssl.gstatic.com/classroom/ic_product_classroom_96.png"/>
+  <link rel="icon" href="https://ssl.gstatic.com/classroom/ic_product_classroom_96.png" />
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      background: transparent;
+      background: black; /* No white background */
       overflow: hidden;
-      font-family: Arial, sans-serif;
-      color: white;
     }
-
-    #particles-js {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #0c0c0c;
-      z-index: -1;
-    }
-
-    #container {
-      position: relative;
-      width: 90%;
-      height: 90%;
-      margin: 2% auto;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-      z-index: 1;
-    }
-
     iframe {
       width: 100%;
       height: 100%;
       border: none;
-      border-radius: 16px;
-    }
-
-    .controls {
-      text-align: center;
-      margin-top: 10px;
-      z-index: 1;
-      position: relative;
-    }
-
-    button {
-      background: #333;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      margin: 0 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    button:hover {
-      background: #555;
     }
   </style>
 </head>
 <body>
-
-  <div id="particles-js"></div>
-
-  <div id="container">
-    <iframe id="proxyFrame" src="https://ultravioletproxy.koyeb.app/" allowfullscreen></iframe>
-  </div>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": { "value": 400, "density": { "enable": true, "value_area": 800 } },
-        "color": { "value": "#888888" },
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.6, "random": true },
-        "size": { "value": 3, "random": true },
-        "line_linked": { "enable": false },
-        "move": { "enable": true, "speed": 3, "direction": "bottom", "out_mode": "out" }
-      },
-      "interactivity": {
-        "events": {
-          "onhover": { "enable": false },
-          "onclick": { "enable": false },
-          "resize": true
-        }
-      },
-      "retina_detect": true
-    });
-
-    function launchBlank() {
-      const win = window.open('about:blank');
-      const iframe = win.document.createElement('iframe');
-      iframe.src = "https://ultravioletproxy.koyeb.app/";
-      iframe.style.position = "fixed";
-      iframe.style.top = 0;
-      iframe.style.left = 0;
-      iframe.style.width = "100%";
-      iframe.style.height = "100%";
-      iframe.style.border = "none";
-      iframe.allowFullscreen = true;
-      win.document.body.style.margin = "0";
-      win.document.body.appendChild(iframe);
-    }
-
-    function goFullscreen() {
-      const iframe = document.getElementById("proxyFrame");
-      if (iframe.requestFullscreen) {
-        iframe.requestFullscreen();
-      } else if (iframe.webkitRequestFullscreen) {
-        iframe.webkitRequestFullscreen();
-      } else if (iframe.msRequestFullscreen) {
-        iframe.msRequestFullscreen();
-      }
-    }
-  </script>
+  <iframe src="https://ultravioletproxy.koyeb.app" allowfullscreen></iframe>
 </body>
 </html>
