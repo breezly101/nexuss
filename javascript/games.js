@@ -10,6 +10,7 @@ const games = [
   { name: 'OvO', folder: 'games/OvO', icon: 'assets/images/ovo.png' },
   { name: 'Sonic Advance', folder: 'games/sonic advance', icon: 'assets/images/sonicadv.png' },
   { name: 'Resent Client (eaglercraft)', folder: 'games/resent_client', icon: 'assets/images/resent.png' },
+  { name: 'Worlds Hardest Game', folder: 'games/hardestgame', icon: 'assets/images/hardestgame.png' },
   // add more games...
 ];
 
