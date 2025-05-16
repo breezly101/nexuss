@@ -1,4 +1,0 @@
-# HTTrack Website Copier Cookie File
-# This file format is compatible with Netscape cookies
-.itch.io	TRUE	/	FALSE	1999999999	itchio_token	WyJPeVFHIiwxNzQ3NDA5NjE5LCJKVjVSaTdGZE9zNnRhaXkiXQ%3d%3d%2eluJqt8%2bntMt%2bpGQo90KaBVqn0es%3d
-
