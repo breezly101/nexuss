@@ -11,6 +11,7 @@ const games = [
   { name: 'Resent Client (eaglercraft)', folder: 'games/resent_client', icon: 'assets/images/resent.png' },
   { name: 'Worlds Hardest Game', folder: 'games/hardestgame', icon: 'assets/images/hardestgame.png' },
   { name: 'Learn To Fly', folder: 'games/learntofly', icon: 'assets/images/fly.png' },
+  { name: 'Learn To Fly 2', folder: 'games/learntofly2', icon: 'assets/images/fly2.png' },
   { name: 'Super Mario 63 (Flash)', folder: 'games/supermario63', icon: 'assets/images/flash63.png' },
   { name: 'Super Mario 63 (Redux)', folder: 'games/sm63redux', icon: 'assets/images/supermario63.png' },
   // add more games...
