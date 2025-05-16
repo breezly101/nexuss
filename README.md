@@ -1,7 +1,7 @@
 # Nexus
 a collection of proxies, games, emulators and hacks idk how to code so im using chatgpt 🥀 (ui revamp in progress)
 
-![image](https://github.com/user-attachments/assets/fc28e89c-f254-4aab-a566-3745b8a80ce1)
+![image](https://github.com/user-attachments/assets/7b3e0118-ff43-464a-afaf-f20f4dad43e6)
 
 proxy
 - ultraviolet proxy
