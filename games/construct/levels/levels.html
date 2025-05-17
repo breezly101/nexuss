@@ -25,25 +25,13 @@
       background-color: #0c0c0c;
     }
 
-    .banner {
-      width: 100%;
-      max-width: 800px;
-      margin: 40px auto 20px;
-      text-align: center;
-    }
-
-    .banner img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
     .menu {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
       width: 90%;
       max-width: 1000px;
-      margin: 0 auto;
+      margin: 60px auto 0;
       padding: 20px;
       box-sizing: border-box;
     }
@@ -110,19 +98,20 @@
 
   <!-- Particle Background -->
   <div id="particles-js"></div>
-  
+
+  <!-- Main Content -->
   <div class="menu">
     <div class="card">
       <img src="assets/seaside-step.png" alt="Seaside Step">
-      <h3>Blooket Hacks</h3>
-      <p>blooket hacks, drag n drop to your bookmarksfolder</p>
-      <a href="blh/index.html"><button>Hack</button></a>
+      <h3>(SCW) 1-1 - Seaside Step</h3>
+      <p>1-1 - Seaside Step</p>
+      <button onclick="copyJSONFile('seaside-step.json')">Copy</button>
     </div>
     <div class="card">
       <img src="assets/quizlet.png" alt="Quizlet Hacks">
       <h3>Quizlet Hacks</h3>
       <p>drag n drop, quizlet like & quizlet</p>
-      <a href="quizlet/index.html"><button>Hack</button></a>
+      <button onclick="copyJSONFile('quizlet.json')">Copy</button>
     </div>
     <div class="card">
       <img src="assets/engine.png" alt="Engine Sounds">
@@ -191,6 +180,23 @@
       },
       "retina_detect": true
     });
+
+    // Generic function to fetch and copy JSON file content
+    function copyJSONFile(filename) {
+      fetch(filename)
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to fetch ' + filename);
+          return response.text();
+        })
+        .then(text => {
+          navigator.clipboard.writeText(text).then(() => {
+            alert(filename + " copied to clipboard!");
+          }).catch(err => {
+            alert("Failed to copy: " + err);
+          });
+        })
+        .catch(err => alert(err.message));
+    }
   </script>
 
 </body>
