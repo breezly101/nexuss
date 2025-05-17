@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home</title>
+  <link rel="icon" href="https://ssl.gstatic.com/classroom/ic_product_classroom_96.png" />
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      height: 100%;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-color: #0c0c0c;
+    }
+
+    .banner {
+      width: 100%;
+      max-width: 800px;
+      margin: 40px auto 20px;
+      text-align: center;
+    }
+
+    .banner img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .card {
+      background-color: #222;
+      padding: 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .card:hover {
+      background-color: #444;
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin: 10px 0;
+      font-size: 20px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .card button {
+      background-color: #555;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .card button:hover {
+      background-color: #666;
+    }
+
+    footer {
+      font-size: 14px;
+      color: grey;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin: 20px auto;
+      text-align: center;
+      width: fit-content;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
+  
+  <div class="menu">
+    <div class="card">
+      <img src="assets/seaside-step.png" alt="Seaside Step">
+      <h3>Blooket Hacks</h3>
+      <p>blooket hacks, drag n drop to your bookmarksfolder</p>
+      <a href="blh/index.html"><button>Hack</button></a>
+    </div>
+    <div class="card">
+      <img src="assets/quizlet.png" alt="Quizlet Hacks">
+      <h3>Quizlet Hacks</h3>
+      <p>drag n drop, quizlet like & quizlet</p>
+      <a href="quizlet/index.html"><button>Hack</button></a>
+    </div>
+    <div class="card">
+      <img src="assets/engine.png" alt="Engine Sounds">
+      <h3>Engine Sounds</h3>
+      <p>engine sounds for whatever, made by markeasting</p>
+      <a href="enginesounds/index.html"><button>Play</button></a>  
+    </div>
+    <div class="card">
+      <img src="assets/mario.png" alt="Super Mario Bros 64">
+      <h3>Super Mario 64</h3>
+      <p>super mario 64</p>
+      <a href="sm64/index.html"><button>Play</button></a>
+    </div>
+    <div class="card">
+      <img src="assets/basketballbros.png" alt="Basketball Bros">
+      <h3>Basketball Bros</h3>
+      <p>where you shoot a ball into a hoop 😮</p>
+      <a href="basketball/index.html"><button>Play</button></a>
+    </div>
+  </div>
+
+  <footer>Made with ❤️ & particles.js</footer>
+
+  <!-- Particles.js Library -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <!-- Particles Config -->
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 150,
+          "density": { "enable": true, "value_area": 800 }
+        },
+        "color": { "value": "#888888" },
+        "shape": {
+          "type": "circle",
+          "stroke": { "width": 0, "color": "#000000" }
+        },
+        "opacity": {
+          "value": 0.6,
+          "random": true
+        },
+        "size": {
+          "value": 3,
+          "random": true
+        },
+        "line_linked": { "enable": false },
+        "move": {
+          "enable": true,
+          "speed": 3,
+          "direction": "bottom",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": false },
+          "onclick": { "enable": false },
+          "resize": true
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+
+</body>
+</html>
