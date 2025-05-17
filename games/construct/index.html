@@ -10,17 +10,38 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      background: black; /* No white background */
+      background: black;
       overflow: hidden;
     }
+
+    .back-button {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      z-index: 10;
+      font-size: 20px;
+      color: lightblue;
+      text-decoration: none;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .back-button:hover {
+      text-decoration: underline;
+    }
+
     iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       border: none;
+      z-index: 1;
     }
   </style>
 </head>
 <body>
+  <a href="assets/levels.html" class="back-button">← Levels</a>
   <iframe src="https://levelsharesquare.com/html5/supermarioconstruct/" allowfullscreen></iframe>
 </body>
 </html>
