@@ -15,22 +15,35 @@
     }
 
     .back-button {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      z-index: 10;
-      font-size: 20px;
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 1000;
+      font-size: 14px;
       color: lightblue;
       text-decoration: none;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-family: system-ui, sans-serif;
+      padding: 4px 8px;
+      border-radius: 4px;
     }
 
     .back-button:hover {
       text-decoration: underline;
     }
 
+    .fullscreen-btn {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      z-index: 1000;
+      font-size: 16px;
+      color: lightblue;
+      cursor: pointer;
+      font-family: system-ui, sans-serif;
+    }
+
     iframe {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
@@ -38,10 +51,39 @@
       border: none;
       z-index: 1;
     }
+
+    .hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
-  <a href="levels/levels.html" class="back-button">← Levels</a>
-  <iframe src="https://levelsharesquare.com/html5/supermarioconstruct/" allowfullscreen></iframe>
+  <a href="assets/levels.html" class="back-button" target="_blank" id="backBtn">← Levels</a>
+  <div class="fullscreen-btn" onclick="toggleFullscreen()">⛶</div>
+  <iframe id="gameFrame" src="https://levelsharesquare.com/html5/supermarioconstruct/" allowfullscreen></iframe>
+
+  <script>
+    const backBtn = document.getElementById('backBtn');
+
+    function toggleFullscreen() {
+      const isFullscreen = document.fullscreenElement != null;
+
+      if (!isFullscreen) {
+        document.documentElement.requestFullscreen();
+        backBtn.classList.add('hidden');
+      } else {
+        document.exitFullscreen();
+        backBtn.classList.remove('hidden');
+      }
+    }
+
+    document.addEventListener('fullscreenchange', () => {
+      const isFullscreen = document.fullscreenElement != null;
+      if (!isFullscreen) {
+        backBtn.classList.remove('hidden');
+      }
+    });
+  </script>
 </body>
 </html>
