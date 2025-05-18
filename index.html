@@ -288,6 +288,17 @@
     showInitialQuoteThenSwitch();
 
     document.getElementById('quote-display').addEventListener('click', displayRandomQuote);
+
+    // This makes sure the quote changes every time you come back to this page
+    window.addEventListener('pageshow', (event) => {
+      if (event.persisted) {
+        // Page loaded from bfcache (back-forward cache)
+        displayRandomQuote();
+      } else {
+        // Normal page load
+        displayRandomQuote();
+      }
+    });
   </script>
 </body>
 </html>
