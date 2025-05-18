@@ -6,28 +6,29 @@
   <title>Home</title>
   <link rel="icon" href="https://ssl.gstatic.com/classroom/ic_product_classroom_96.png" />
   <style>
-    body, html {
+    html, body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
       height: 100%;
       overflow: hidden;
+      background: #0c0c0c;
       color: white;
     }
     #loader {
       position: fixed;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: #0c0c0c;
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 1000;
-      transition: opacity 1s ease, visibility 1s ease;
     }
     #loader.fade-out {
       opacity: 0;
       visibility: hidden;
+      transition: opacity 1s ease, visibility 1s ease;
     }
     .loader-text {
       font-size: 50px;
@@ -35,77 +36,19 @@
       color: white;
       animation: spread 1.8s ease-out forwards, fadeout 0.6s ease 2.2s forwards;
     }
+    .no-anim .loader-text {
+      animation: none;
+      opacity: 0;
+    }
     @keyframes spread {
       0% { letter-spacing: 0px; opacity: 0; }
       50% { opacity: 1; }
       100% { letter-spacing: 20px; opacity: 1; }
     }
-    @keyframes fadeout { to { opacity: 0; } }
+    @keyframes fadeout {
+      to { opacity: 0; }
+    }
 
-    #particles-js {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background-color: #0c0c0c;
-    }
-    .content {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-      padding: 20px;
-    }
-    .banner { margin-bottom: 20px; }
-    .title {
-      font-size: 55px;
-      font-weight: bold;
-      color: white;
-      text-transform: uppercase;
-    }
-    .quote-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 30px;
-    }
-    .quote-text {
-      font-size: 17px;
-      margin-bottom: 15px;
-      color: grey;
-      transition: color 0.3s;
-      cursor: pointer;
-    }
-    .quote-text:hover { color: white; }
-    .menu {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding: 10px;
-      text-align: center;
-      margin-top: -30px;
-    }
-    .menu a {
-      background-color: transparent;
-      padding: 10px 18px;
-      border-radius: 10px;
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      font-size: 14px;
-      transition: background-color 0.3s, transform 0.2s, border 0.3s;
-      border: 2px solid #888888;
-    }
-    .menu a:hover {
-      background-color: #444;
-      transform: scale(1.05);
-      border: 2px solid #888888;
-    }
     .disable-intro {
       position: fixed;
       top: 10px;
@@ -122,12 +65,77 @@
     .disable-intro:hover {
       background: #444;
     }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .content {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    .banner {
+      margin-bottom: 20px;
+    }
+    .title {
+      font-size: 55px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .quote-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    .quote-text {
+      font-size: 17px;
+      margin-bottom: 15px;
+      color: grey;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .quote-text:hover {
+      color: white;
+    }
+    .menu {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 10px;
+    }
+    .menu a {
+      background: transparent;
+      padding: 10px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      transition: background 0.3s, transform 0.2s, border 0.3s;
+      border: 2px solid #888;
+    }
+    .menu a:hover {
+      background: #444;
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
-  <div id="loader"><div class="loader-text">NEXUS</div></div>
-  <div id="particles-js"></div>
   <div class="disable-intro" onclick="disableIntro()">Disable Intro</div>
+
+  <div id="loader"><div class="loader-text">NEXUS</div></div>
+
+  <div id="particles-js"></div>
+
   <div class="content">
     <div class="banner"><div class="title">Nexus</div></div>
     <div class="quote-container">
@@ -140,10 +148,11 @@
       <a href="hacks.html">Hacks</a>
     </div>
   </div>
+
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    const quotes = [/* your quotes here */ "skibidi", "error 404: page not found", "hi guys", "sup", "chrome://inducebrowsercrashforrealz/"];
-    
+    const quotes = ["skibidi", "error 404: page not found", "hi guys", "sup", "chrome://inducebrowsercrashforrealz/"];
+
     function displayRandomQuote() {
       const randomIndex = Math.floor(Math.random() * quotes.length);
       document.getElementById('quote-display').textContent = quotes[randomIndex];
@@ -163,53 +172,45 @@
 
     function disableIntro() {
       setCookie("introDisabled", "true", 365);
-      alert("Intro disabled. Refresh the page to skip it.");
+      alert("Intro animation disabled. Refresh to see it gone.");
     }
 
     window.addEventListener('load', () => {
       const introDisabled = getCookie("introDisabled");
-      const visited = getCookie("visitedBefore");
-
-      if (!introDisabled && !visited) {
-        setCookie("visitedBefore", "true", 1);
-        setTimeout(() => {
-          document.getElementById('loader').classList.add('fade-out');
-          document.querySelector('.content').style.display = 'flex';
-        }, 2600);
-      } else {
-        document.getElementById('loader').style.display = "none";
-        document.querySelector('.content').style.display = 'flex';
+      if (introDisabled === "true") {
+        document.getElementById('loader').classList.add('no-anim');
       }
+
+      setTimeout(() => {
+        document.getElementById('loader').classList.add('fade-out');
+        document.querySelector('.content').style.display = 'flex';
+      }, 2600);
 
       displayRandomQuote();
 
       particlesJS("particles-js", {
-        "particles": {
-          "number": {"value": 400,"density": {"enable": true,"value_area": 800}},
-          "color": {"value": "#888888"},
-          "shape": {"type": "circle","stroke": {"width": 0,"color": "#000000"}},
-          "opacity": {"value": 0.6,"random": true},
-          "size": {"value": 3,"random": true},
-          "line_linked": {"enable": false},
-          "move": {
-            "enable": true,
-            "speed": 3,
-            "direction": "bottom",
-            "random": false,
-            "straight": false,
-            "out_mode": "out",
-            "bounce": false
+        particles: {
+          number: { value: 400, density: { enable: true, value_area: 800 }},
+          color: { value: "#888" },
+          shape: { type: "circle" },
+          opacity: { value: 0.6, random: true },
+          size: { value: 3, random: true },
+          line_linked: { enable: false },
+          move: {
+            enable: true,
+            speed: 3,
+            direction: "bottom",
+            out_mode: "out"
           }
         },
-        "interactivity": {
-          "detect_on": "canvas",
-          "events": {
-            "onhover": {"enable": false},
-            "onclick": {"enable": false},
-            "resize": true
+        interactivity: {
+          events: {
+            onhover: { enable: false },
+            onclick: { enable: false },
+            resize: true
           }
         },
-        "retina_detect": true
+        retina_detect: true
       });
     });
 
