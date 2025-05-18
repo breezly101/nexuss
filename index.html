@@ -18,15 +18,18 @@
 
     /* LOADER SCREEN */
     #loader {
+      display: none;
       position: fixed;
       width: 100%;
       height: 100%;
       background: #0c0c0c;
-      display: flex;
       justify-content: center;
       align-items: center;
       z-index: 1000;
       transition: opacity 1s ease, visibility 1s ease;
+    }
+    #loader.active {
+      display: flex;
     }
 
     #loader.fade-out {
@@ -345,22 +348,30 @@
     });
 
     document.getElementById('quote-display').addEventListener('click', displayRandomQuote);
+  </script>
 
-    // Loader removal with localStorage check
-    window.addEventListener('load', () => {
-      if (localStorage.getItem('loaderShown')) {
-        // Loader already shown, skip loader immediately
-        document.getElementById('loader').style.display = 'none';
-        document.querySelector('.content').style.display = 'flex';
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loader = document.getElementById('loader');
+      const content = document.querySelector('.content');
+
+      if (!localStorage.getItem('nexusLoaded')) {
+        // Show loader and run animation
+        loader.classList.add('active');
+
+        window.addEventListener('load', () => {
+          setTimeout(() => {
+            loader.classList.add('fade-out');
+            content.style.display = 'flex';
+            localStorage.setItem('nexusLoaded', 'true');
+          }, 2600);
+        });
       } else {
-        // Show loader, then hide it and set flag
-        setTimeout(() => {
-          document.getElementById('loader').classList.add('fade-out');
-          document.querySelector('.content').style.display = 'flex';
-          localStorage.setItem('loaderShown', 'true');
-        }, 2600);
+        // Hide loader immediately, show content
+        content.style.display = 'flex';
       }
     });
   </script>
+
 </body>
 </html>
