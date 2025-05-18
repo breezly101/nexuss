@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Home</title>
   <link rel="icon" href="https://ssl.gstatic.com/classroom/ic_product_classroom_96.png" sizes="96x96" />
   <style>
@@ -35,7 +35,21 @@
     EJS_player = '#game';
     EJS_gameUrl = '../../roms/sm64.z64';
     EJS_core = 'mupen64plus';
+
+    // Custom keybinds
+    window.EJS_controls = {
+      up: 'KeyW',
+      down: 'KeyS',
+      left: 'KeyA',
+      right: 'KeyD',
+      A: 'KeyJ',
+      B: 'KeyK',
+      start: 'Enter',
+      select: 'ShiftRight',
+      Z: 'KeyN'  // Left Shift mapped to Z button
+    };
   </script>
+
   <script src="https://www.emulatorjs.com/loader.js"></script>
 </body>
 </html>
