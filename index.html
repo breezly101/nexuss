@@ -216,7 +216,7 @@
     });
   </script>
 
-<script>
+  <script>
   const quotes = [
     "i accidentally muted the teacher",
     "my homework ate my dog",
@@ -285,9 +285,11 @@
     }, 1500); // 1500 ms delay
   }
 
-  showInitialQuoteThenSwitch();
+  // Use pageshow event to handle both normal load and bfcache restore
+  window.addEventListener('pageshow', (event) => {
+    showInitialQuoteThenSwitch();
+  });
 
+  // Also allow clicking the quote to change it manually
   document.getElementById('quote-display').addEventListener('click', displayRandomQuote);
-
-  // Removed the pageshow listener to prevent multiple quote changes on refresh/back
 </script>
