@@ -106,42 +106,28 @@
       transform: scale(1.05);
       border: 2px solid #888888;
     }
-    footer {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      font-size: 14px;
-      color: grey;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 5px 10px;
-      border-radius: 5px;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-    }
-    .mute-btn {
+    .disable-intro {
       position: fixed;
       top: 10px;
       right: 10px;
-      width: 40px;
-      height: 40px;
+      background: #222;
+      color: white;
+      border: 1px solid #888;
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 14px;
       cursor: pointer;
-      border-radius: 50%;
-      background-color: rgba(0, 0, 0, 0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      z-index: 1100;
     }
-    .mute-btn img {
-      width: 20px;
-      height: 20px;
-      filter: invert(100%);
+    .disable-intro:hover {
+      background: #444;
     }
   </style>
 </head>
 <body>
   <div id="loader"><div class="loader-text">NEXUS</div></div>
   <div id="particles-js"></div>
+  <div class="disable-intro" onclick="disableIntro()">Disable Intro</div>
   <div class="content">
     <div class="banner"><div class="title">Nexus</div></div>
     <div class="quote-container">
@@ -156,32 +142,17 @@
   </div>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    const quotes = [
-      "i accidentally muted the teacher","my homework ate my dog",
-      "oh the weather outside is rizzy","school wifi is sus",
-      "late to class again 💀","1 + 1 = 11 i think",
-      "now with more html","omg i better not get iss for this 😭",
-      "no ads!","blocked!","please dont block the site",
-      "made at school","made with javascript!","have you played eaglercraft?",
-      "made by breezly","carefully crafted","skibidi",
-      "chrome://inducebrowsercrashforrealz/","1% learning, 99% loading",
-      "oops... i thought that tab was muted","my brain needs an update",
-      "press ctrl+shift+q+q for free money","who stil uses the wii?",
-      "school. is. bad.","assignments hit different at 11:59",
-      "error 404: page not found","made with css!","nexus >> interstellar",
-      "nexus >> 55gms","i dare you to rub a magnet on the side of your chromebook",
-      "bruh","forgot my charger","teacher caught me playing games again",
-      "unblocked","cheers for the code chatgpt","made on github",
-      "sup","hi guys","im in your walls","check out the games page",
-      "we should be able to play football ⚽","index.html","fortnite is cringe",
-      "minecraft is goated","use ultraviolet for surfing the web 🌊",
-      "goated edition","best proxy","how is this not blocked",
-      "help","lunch is mid","dont forget your homework"
-    ];
-
+    const quotes = [/* your quotes here */ "skibidi", "error 404: page not found", "hi guys", "sup", "chrome://inducebrowsercrashforrealz/"];
+    
     function displayRandomQuote() {
       const randomIndex = Math.floor(Math.random() * quotes.length);
       document.getElementById('quote-display').textContent = quotes[randomIndex];
+    }
+
+    function setCookie(name, value, days) {
+      const d = new Date();
+      d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+      document.cookie = `${name}=${value};expires=${d.toUTCString()};path=/`;
     }
 
     function getCookie(name) {
@@ -190,17 +161,16 @@
       if (parts.length === 2) return parts.pop().split(';').shift();
     }
 
-    function setCookie(name, value, days) {
-      const d = new Date();
-      d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
-      const expires = "expires=" + d.toUTCString();
-      document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    function disableIntro() {
+      setCookie("introDisabled", "true", 365);
+      alert("Intro disabled. Refresh the page to skip it.");
     }
 
     window.addEventListener('load', () => {
+      const introDisabled = getCookie("introDisabled");
       const visited = getCookie("visitedBefore");
 
-      if (!visited) {
+      if (!introDisabled && !visited) {
         setCookie("visitedBefore", "true", 1);
         setTimeout(() => {
           document.getElementById('loader').classList.add('fade-out');
