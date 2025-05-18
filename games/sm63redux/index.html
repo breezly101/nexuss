@@ -6,12 +6,15 @@
     <title>Home</title>
     <link rel="icon" href="https://ssl.gstatic.com/classroom/ic_product_classroom_96.png" />
     <style>
+        /* Set body and html to take up full height */
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
             overflow: hidden;
         }
+
+        /* Make iframe take up the full window */
         iframe {
             width: 100%;
             height: 100%;
@@ -20,10 +23,6 @@
     </style>
 </head>
 <body>
-    <!-- sandbox limits what scripts can see; removing "allow-same-origin" helps hide that it's inside iframe -->
-    <iframe 
-        src="https://itch.io/embed-upload/7803470?color=333333" 
-        sandbox="allow-forms allow-scripts allow-popups allow-pointer-lock">
-    </iframe>
+    <iframe src="https://itch.io/embed-upload/7803470?color=333333"></iframe>
 </body>
 </html>
