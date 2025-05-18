@@ -3,6 +3,8 @@ a collection of proxies, games, emulators and hacks idk how to code so im using 
 
 ![image](https://github.com/user-attachments/assets/7b3e0118-ff43-464a-afaf-f20f4dad43e6)
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fbreezly101%2Fnexus)
+
 proxy
 - ultraviolet proxy
 
