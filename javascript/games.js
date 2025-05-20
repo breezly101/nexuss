@@ -8,7 +8,7 @@ const games = [
   { name: 'Basketball Bros', folder: 'games/basketball', icon: 'assets/images/basketball.png' },
   { name: 'OvO', folder: 'games/OvO', icon: 'assets/images/ovo.png' },
   { name: 'Sonic Advance', folder: 'games/sonic advance', icon: 'assets/images/sonicadv.png' },
-  { name: 'Resent Client (eaglercraft)', folder: 'games/resent_client', icon: 'assets/images/resent.png' },
+  { name: 'Resent Client (eaglercraft)', folder: 'games/Resent-Client-1.8.9', icon: 'assets/images/resent.png' },
   { name: 'Worlds Hardest Game', folder: 'games/hardestgame', icon: 'assets/images/hardestgame.png' },
   { name: 'Learn To Fly', folder: 'games/learntofly', icon: 'assets/images/fly.png' },
   { name: 'Learn To Fly 2', folder: 'games/learntofly2', icon: 'assets/images/fly2.png' },
