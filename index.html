@@ -2,246 +2,164 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Home</title>
-  <link rel="icon" href="https://ssl.gstatic.com/classroom/ic_product_classroom_96.png" />
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      height: 100%;
-      overflow: hidden;
-      color: white;
-    }
-    #loader {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: #0c0c0c;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      transition: opacity 1s ease, visibility 1s ease;
-    }
-    #loader.fade-out {
-      opacity: 0;
-      visibility: hidden;
-    }
-    .loader-text {
-      font-size: 50px;
-      font-weight: bold;
-      color: white;
-      animation: spread 1.8s ease-out forwards, fadeout 0.6s ease 2.2s forwards;
-    }
-    @keyframes spread {
-      0% { letter-spacing: 0px; opacity: 0; }
-      50% { opacity: 1; }
-      100% { letter-spacing: 20px; opacity: 1; }
-    }
-    @keyframes fadeout { to { opacity: 0; } }
+  <link rel="icon" href="https://ssl.gstatic.com/classroom/ic_product_classroom_96.png" sizes="96x96" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
+  <!-- Your scripts -->
+  <script src="js/loading.js"></script>
+  <script src="js/particles.js"></script> <!-- your local particles.js library -->
+  <script src="js/background.js"></script>
+  <script defer src="js/app.js"></script>
+
+  <!-- Ultraviolet -->
+  <script src="/static/uv/uv.bundle.js" defer></script>
+  <script src="/static/uv/uv.config.js" defer></script>
+  <script src="/static/register-sw.js" defer></script>
+  <script src="/static/search.js" defer></script>
+  <script src="/static/index.js" defer></script>
+
+  <script>
+    async function regsw() {
+      await navigator.serviceWorker.register("/static/uv-sw.js", { scope: "/static/" });
+    }
+    regsw();
+  </script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-F926VJSNDD");
+  </script>
+
+  <style>
+    /* Ensure the particles container fills the viewport */
     #particles-js {
       position: fixed;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1;
-      background-color: #0c0c0c;
-    }
-    .content {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-      padding: 20px;
-    }
-    .banner { margin-bottom: 20px; }
-    .title {
-      font-size: 55px;
-      font-weight: bold;
-      color: white;
-      text-transform: uppercase;
-    }
-    .quote-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 30px;
-    }
-    .quote-text {
-      font-size: 17px;
-      margin-bottom: 15px;
-      color: grey;
-      transition: color 0.3s;
-      cursor: pointer;
-    }
-    .quote-text:hover { color: white; }
-    .menu {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      padding: 10px;
-      text-align: center;
-      margin-top: -30px;
-    }
-    .menu a {
-      background-color: transparent;
-      padding: 10px 18px;
-      border-radius: 10px;
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      font-size: 14px;
-      transition: background-color 0.3s, transform 0.2s, border 0.3s;
-      border: 2px solid #888888;
-    }
-    .menu a:hover {
-      background-color: #444;
-      transform: scale(1.05);
-      border: 2px solid #888888;
-    }
-    footer {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      font-size: 14px;
-      color: grey;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 5px 10px;
-      border-radius: 5px;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-    }
-    .mute-btn {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      border-radius: 50%;
-      background-color: rgba(0, 0, 0, 0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .mute-btn img {
-      width: 20px;
-      height: 20px;
-      filter: invert(100%);
+      top: 0;
+      left: 0;
+      z-index: -1; /* behind your content */
     }
   </style>
 </head>
+
 <body>
-  <div id="loader"><div class="loader-text">NEXUS</div></div>
+  <!-- The container for particles.js -->
   <div id="particles-js"></div>
-  <div class="content">
-    <div class="banner"><div class="title">Nexus</div></div>
-    <div class="quote-container">
-      <div id="quote-display" class="quote-text">(TEXT)</div>
+
+  <div class="navbar">
+    <div class="logo">
+      <a href="/index.html"><img src="testy.png" alt="Logo" id="logo" /></a>
     </div>
-    <div class="menu">
-      <a href="search.html">Ultraviolet</a>
-      <a href="games.html">Games</a>
-      <a href="emulators.html">Emulators</a>
-      <a href="hacks.html">Hacks</a>
+    <h5><span id="domain"></span></h5>
+    <script>
+      const domain = window.location.hostname;
+      document.getElementById("domain").textContent =
+        domain.length > 25 ? domain.substring(0, 12) + "..." : domain;
+    </script>
+
+    <div class="nav-right">
+      <a href="/games.html"><i class="fas fa-gamepad"></i> </a>
+      <a href="/apps.html"><i class="fas fa-border-all"></i> </a>
+      <a href="/tools.html"><i class="fa-solid fa-screwdriver-wrench"></i> </a>
+      <a href="/partners.html"><i class="fa-solid fa-users"></i> </a>
+      <a href="/credits.html"><i class="fas fa-book"></i> </a>
+      <a href="/loaderlarge.html?url=/static/index.html"><i class="fa-solid fa-magnifying-glass"></i> </a>
+      <a href="/settings.html"><i class="fa-solid fa-gear"></i> </a>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <div id="roddy">
+    <h1>nexus</h1>
+    <h4>Featured</h4>
+    <div id="rrb">
+      <a href="mc/index.html">
+        <img src="assets/images/mc.jpg" alt="Game" />
+      </a>
+      <a href="/loader.html?url=/static/google.html">
+        <img src="assets/images/google.jpg" alt="Game" />
+      </a>
+      <a href="/loader.html?url=/static/tube.html">
+        <img src="assets/images/youtube.png" alt="tiktok" />
+      </a>
+      <a href="/loader.html?url=/static/rbindex.html">
+        <img src="assets/images/roblox.webp" alt="Game" />
+      </a>
+    </div>
+
+    <button class="start" onclick="location.href='/notes.html'">start playing!</button>
+    <h3>
+      Join the
+      <a href="" target="_blank" style="color: #5865F2; text-decoration: none;">
+        discord
+      </a>
+      for more links and neuxs news
+    </h3>
+  </div>
+
+  <!-- PARTICLES.JS INITIALIZATION -->
   <script>
-    const quotes = [
-      "i accidentally muted the teacher",
-      "my homework ate my dog",
-      "oh the weather outside is rizzy",
-      "school wifi is sus",
-      "late to class again 💀",
-      "1 + 1 = 11 i think",
-      "now with more html","omg i better not get iss for this 😭",
-      "no ads!",
-      "blocked!",
-      "please dont block the site",
-      "made at school",
-      "made with javascript!",
-      "have you played eaglercraft?",
-      "made by breezly",
-      "carefully crafted",
-      "skibidi",
-      "chrome://inducebrowsercrashforrealz/",
-      "1% learning, 99% loading",
-      "oops... i thought that tab was muted","my brain needs an update",
-      "press ctrl+shift+q+q for free money",
-      "who stil uses the wii?",
-      "school. is. bad.",
-      "assignments hit different at 11:59",
-      "error 404: page not found",
-      "made with css!","nexus >> interstellar",
-      "nexus >> 55gms",
-      "i dare you to rub a magnet on the side of your chromebook",
-      "bruh","forgot my charger","teacher caught me playing games again",
-      "unblocked",
-      "cheers for the code chatgpt",
-      "made on github",
-      "sup",
-      "hi guys",
-      "im in your walls",
-      "check out the games page",
-      "we should be able to play football ⚽",
-      "index.html",
-      "fortnite is cringe",
-      "minecraft is goated",
-      "use ultraviolet for surfing the web 🌊",
-      "goated edition","best proxy","how is this not blocked",
-      "help",
-      "lunch is mid",
-      "dont forget your homework"
-    ];
-
-    function displayRandomQuote() {
-      const randomIndex = Math.floor(Math.random() * quotes.length);
-      document.getElementById('quote-display').textContent = quotes[randomIndex];
-    }
-
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('loader').classList.add('fade-out');
-        document.querySelector('.content').style.display = 'flex';
-      }, 2600);
-
-      displayRandomQuote();
-    });
-
-    document.getElementById('quote-display').addEventListener('click', displayRandomQuote);
-
+    // Make sure particles.js is loaded before calling this
     particlesJS("particles-js", {
-      "particles": {
-        "number": {"value": 400,"density": {"enable": true,"value_area": 800}},
-        "color": {"value": "#888888"},
-        "shape": {"type": "circle","stroke": {"width": 0,"color": "#000000"}},
-        "opacity": {"value": 0.6,"random": true},
-        "size": {"value": 3,"random": true},
-        "line_linked": {"enable": false},
-        "move": {
-          "enable": true,
-          "speed": 3,
-          "direction": "bottom",
-          "random": false,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false
-        }
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#ffffff" },
+        shape: {
+          type: "circle",
+          stroke: { width: 0, color: "#000000" },
+          polygon: { nb_sides: 5 },
+        },
+        opacity: {
+          value: 0.5,
+          random: false,
+          anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: { enable: false, speed: 40, size_min: 0.1, sync: false },
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#ffffff",
+          opacity: 0.4,
+          width: 1,
+        },
+        move: {
+          enable: true,
+          speed: 3,
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+          attract: { enable: false, rotateX: 600, rotateY: 1200 },
+        },
       },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {"onhover": {"enable": false},"onclick": {"enable": false},"resize": true}
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" },
+          resize: true,
+        },
+        modes: {
+          grab: { distance: 400, line_linked: { opacity: 1 } },
+          bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+          repulse: { distance: 200, duration: 0.4 },
+          push: { particles_nb: 4 },
+          remove: { particles_nb: 2 },
+        },
       },
-      "retina_detect": true
+      retina_detect: true,
     });
   </script>
 </body>
