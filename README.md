@@ -37,5 +37,6 @@ hacks
 - about:blank cloaking ✓
 - offline html games*
 - ultraviolet proxy ✓
-- cool loading screen (reset cookies if you want to see it again) ✓
+- cool loading screen ✓
+- mirror sites (without .github.io)
 
