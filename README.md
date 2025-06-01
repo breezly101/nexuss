@@ -1,7 +1,7 @@
 # Nexus
 a collection of a proxy, games, emulators and hacks idk how to code so im using chatgpt 🥀 (ui revamp in progress)
 
-![image](https://github.com/user-attachments/assets/7b3e0118-ff43-464a-afaf-f20f4dad43e6)
+<img src="https://github.com/user-attachments/assets/7b3e0118-ff43-464a-afaf-f20f4dad43e6" style="border-radius: 15px;" />
 
 # Deployment
 
@@ -39,4 +39,3 @@ hacks
 - ultraviolet proxy ✓
 - cool loading screen ✓
 - mirror sites (without .github.io)
-
