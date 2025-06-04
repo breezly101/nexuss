@@ -17,6 +17,7 @@ const games = [
   { name: 'Super Mario 63 (Redux)', folder: 'games/sm63redux', icon: 'assets/images/supermario63.png' },
   { name: 'Super Mario Construct', folder: 'games/construct', icon: 'assets/images/construct.png' },
   { name: 'Cluster Rush', folder: 'games/cluster-rush', icon: 'assets/images/cluster-rush.png' },
+  { name: 'Chrome Dino', folder: 'games/dino', icon: 'assets/images/dino.png' },
   // add more games...
 ];
 
